@@ -1,0 +1,65 @@
+<div class="main-container">
+  <div class="table-container">
+    <mat-card-title>This week shifts</mat-card-title>
+    <table *ngIf="thisWeekShifts.length">
+      <thead>
+        <th>Shift name</th>
+        <th>Shift place</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Date</th>
+        <th>Profit per hour</th>
+        <th>Profit per day</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shift of thisWeekShifts">
+          <td>{{ shift.shiftName }}</td>
+          <td>{{ shift.shiftPlace }}</td>
+          <td>{{ shift.startTime }}</td>
+          <td>{{ shift.endTime }}</td>
+          <td>{{ shift.date }}</td>
+          <td>{{ shift.pricePerHour }}</td>
+          <td>{{ profit(shift) }}</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!localShifts.length">
+        <tr>
+          <td>No shift found with that shft name!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-container">
+    <mat-card-title>Upcomming shifts</mat-card-title>
+    <table *ngIf="upcommingShifts.length">
+      <thead>
+        <th>Shift name</th>
+        <th>Shift place</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Date</th>
+        <th>Profit per hour</th>
+        <th>Profit per day</th>
+        <th>Comments</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shift of upcommingShifts">
+          <td>{{ shift.shiftName }}</td>
+          <td>{{ shift.shiftPlace }}</td>
+          <td>{{ shift.startTime }}</td>
+          <td>{{ shift.endTime }}</td>
+          <td>{{ shift.date }}</td>
+          <td>{{ shift.pricePerHour }}</td>
+          <td>{{ profit(shift) }}</td>
+          <td>{{ shift.comments}}</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!localShifts.length">
+        <tr>
+          <td>No shift found with that shft name!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

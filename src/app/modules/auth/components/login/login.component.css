@@ -1,0 +1,60 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid black;
+  height: 60vh;
+  width: 70vw;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid black;
+}
+
+.inputs-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+mat-form-field {
+  width: 25vw;
+}
+
+.buttons-cotainer {
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  gap: 15px;
+}
+
+button {
+  width: 10vw;
+  height: 5vh;
+  font-size: 20px;
+}
+
+.right-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rebeccapurple;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+img {
+  width: 35vw;
+}

@@ -1,0 +1,86 @@
+<form [formGroup]="registerForm">
+  <div class="main-container">
+    <div class="left-container">
+      <p></p>
+      <img src="../../../../../assets/register.png" />
+    </div>
+    <div class="right-container">
+      <mat-card-title class="title">Welcome to shift manger!</mat-card-title>
+      <div class="container">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            [formControlName]="'email'"
+            placeholder="Ex. pat@example.com"
+          />
+          <mat-error *ngIf="registerForm.invalid">{{
+            getErrorMessageEmail()
+          }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            [formControlName]="'password'"
+            placeholder="Johndoe.99"
+          />
+          <mat-error *ngIf="registerForm.invalid">{{
+            getErrorMessagePassword()
+          }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>First name</mat-label>
+          <input
+            type="text"
+            matInput
+            [formControlName]="'firstName'"
+            placeholder="John"
+          />
+          <mat-error *ngIf="registerForm.invalid">{{
+            getErrorMessageFirstName()
+          }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Last name</mat-label>
+          <input
+            type="text"
+            matInput
+            [formControlName]="'lastName'"
+            placeholder="Doe"
+          />
+          <mat-error *ngIf="registerForm.invalid">{{
+            getErrorMessageLastName()
+          }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Age</mat-label>
+          <input
+            type="number"
+            matInput
+            [formControlName]="'age'"
+            placeholder="16"
+          />
+          <mat-error *ngIf="registerForm.invalid">{{
+            getErrorMessageAge()
+          }}</mat-error>
+        </mat-form-field>
+
+        <button
+          mat-flat-button
+          color="warn"
+          [disabled]="this.registerForm.invalid"
+          (click)="onRegisterClick()"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

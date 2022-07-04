@@ -1,0 +1,67 @@
+<form [formGroup]="addNewShiftForm">
+  <div class="main-container">
+    <div class="inputs-container">
+      <mat-error *ngIf="errorMessage" class="error"
+        >Start time must be lower than end time</mat-error
+      >
+      <mat-form-field>
+        <mat-label>Shift name</mat-label>
+        <input type="text" matInput [formControlName]="'shiftName'" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input type="date" matInput [formControlName]="'date'" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Start time</mat-label>
+        <input type="time" matInput [formControlName]="'startTime'" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>End time</mat-label>
+        <input type="time" matInput [formControlName]="'endTime'" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Price per Hour</mat-label>
+        <input type="number" matInput [formControlName]="'pricePerHour'" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Shift place</mat-label>
+        <input type="text" matInput [formControlName]="'shiftPlace'" />
+      </mat-form-field>
+
+      <mat-form-field class="new-shift-full-width">
+        <textarea
+          matInput
+          placeholder="Comments"
+          [formControlName]="'comments'"
+        ></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="buttons-container">
+      <button
+        (click)="onAddNewShift()"
+        mat-flat-button
+        color="primary"
+        [disabled]="this.addNewShiftForm.invalid"
+        type="button"
+      >
+        Add
+      </button>
+
+      <button
+        mat-flat-button
+        color="primary"
+        type="button"
+        [routerLink]="['../home']"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</form>

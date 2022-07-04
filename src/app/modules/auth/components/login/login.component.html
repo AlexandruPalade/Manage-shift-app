@@ -1,0 +1,52 @@
+<form [formGroup]="loginForm">
+  <div class="main-container">
+    <div class="container">
+      <div class="left-container">
+        <mat-card-title>Hello</mat-card-title>
+        <mat-error>{{ errorMessage }}</mat-error>
+        <div class="inputs-buttons-container">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              [formControlName]="'email'"
+              placeholder="Ex. pat@example.com"
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              [formControlName]="'password'"
+              placeholder="Johndoe.99"
+            />
+          </mat-form-field>
+          <div class="buttons-cotainer">
+            <button
+              (click)="onLoginClick()"
+              mat-flat-button
+              color="primary"
+              [disabled]="this.loginForm.invalid"
+            >
+              Login
+            </button>
+            <button
+              mat-flat-button
+              color="primary"
+              [routerLink]="['/auth/register']"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-container">
+        <img src="../../../../../assets/login.png" />
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,70 @@
+<div class="main-container">
+  <div class="top-container">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input type="email" matInput placeholder="Ex. pat@example.com" #input />
+    </mat-form-field>
+
+    <mat-form-field color="primary">
+      <mat-label>Search by Date</mat-label>
+      <mat-date-range-input [rangePicker]="picker" [formGroup]="dateRange">
+        <input matStartDate formControlName="start" placeholder="Start date" />
+        <input matEndDate formControlName="end" placeholder="End date" />
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker
+        #picker
+        (closed)="oncClosedDatePicker()"
+      ></mat-date-range-picker>
+      <button matSuffix mat-icon-button aria-label="Clear" (click)="onClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button
+      mat-flat-button
+      color="primary"
+      type="button"
+      [routerLink]="['/shifts/new']"
+      class="add-shift-btn"
+    >
+      Add
+    </button>
+  </div>
+
+  <div class="bottom-container">
+    <table *ngIf="usersShifts.length">
+      <thead>
+        <th>Shift name</th>
+        <th>Shift place</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Date</th>
+        <th>Profit per hour</th>
+        <th>Profit per day</th>
+        <th>Comments</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shift of localShifts" (click)="editShift(shift.id)">
+          <td>{{ shift.shiftName }}</td>
+          <td>{{ shift.shiftPlace }}</td>
+          <td>{{ shift.startTime }}</td>
+          <td>{{ shift.endTime }}</td>
+          <td>{{ shift.date }}</td>
+          <td>{{ shift.pricePerHour }}$</td>
+          <td>{{ profit(shift) }}$</td>
+          <td>{{ shift.comments }}</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!localShifts.length">
+        <tr>
+          <td>No shift found</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="!usersShifts.length" class="emptyTable">
+      <mat-card-title>Please press add!</mat-card-title>
+    </div>
+  </div>
+</div>

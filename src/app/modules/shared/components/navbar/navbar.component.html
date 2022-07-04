@@ -1,0 +1,15 @@
+<div class="main-container">
+  <div class="navigation">
+    <a [routerLink]="['/shifts/work']">Work</a>
+    <a [routerLink]="['/shifts/home']">Home</a>
+    <a [routerLink]="['/shifts/new']">Add shift</a>
+    <a (click)="editUser(id)">Edit profile</a>
+  </div>
+
+  <div class="details">
+    <mat-card-title (click)="editUser(id)">Hi,{{ email }}</mat-card-title>
+    <button mat-flat-button color="basic" type="button" (click)="logOut()">
+      Log Out
+    </button>
+  </div>
+</div>

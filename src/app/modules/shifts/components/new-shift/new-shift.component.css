@@ -1,0 +1,30 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.error {
+  align-self: center;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 20vw;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+button {
+  width: 9vw;
+}
