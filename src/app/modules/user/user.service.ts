@@ -11,7 +11,6 @@ export class UserService {
     'https://shift-app-7c7c7-default-rtdb.europe-west1.firebasedatabase.app/users';
 
   createNewUser(userDetails: Partial<User>) {
-    console.log('???????????????');
     return this.httpClient.post(this.BASE_URL, userDetails);
   }
 
