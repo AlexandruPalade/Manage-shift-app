@@ -102,7 +102,6 @@ export class AuthService {
       default:
         errorMessage = 'Email or password incorrect';
     }
-    console.log(authError);
     return throwError({ authError, errorMessage });
   }
 
