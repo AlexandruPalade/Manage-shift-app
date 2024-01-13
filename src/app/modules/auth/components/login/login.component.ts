@@ -22,7 +22,6 @@ export class LoginComponent {
     const { email, password } = this.loginForm.value;
 
     this.authService.loginUser(email, password).subscribe(
-      (data) => console.log(data),
       (error) => {
         console.log(error.errorMessage);
         this.errorMessage = error.errorMessage;
