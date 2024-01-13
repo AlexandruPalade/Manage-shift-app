@@ -23,7 +23,6 @@ export class LoginComponent {
 
     this.authService.loginUser(email, password).subscribe(
       (error) => {
-        console.log(error.errorMessage);
         this.errorMessage = error.errorMessage;
       }
     );
