@@ -45,7 +45,6 @@ export class AuthService {
   registerUser(email: string, password: string, userDetails: Partial<User>) {
     return this.handleAuth(email, password, AuthType.Register).pipe(
       switchMap((authResponse) => {
-        console.log(authResponse);
         return this.userService.createNewUser({
           ...userDetails,
           id: authResponse.localId,
